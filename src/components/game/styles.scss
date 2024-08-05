@@ -1,0 +1,24 @@
+@import "../../styles/breakpoints";
+
+.game {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-template-rows: auto;
+  gap: 10px;
+  max-width: 100%;
+  margin: 20px auto;
+
+  @include respond-to(sm) {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    max-width: 600px;
+  }
+
+  @include respond-to(md) {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    max-width: 700px;
+  }
+
+  @include respond-to(lg) {
+    max-width: 800px;
+  }
+}
