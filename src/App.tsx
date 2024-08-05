@@ -1,11 +1,18 @@
 import React from "react";
-import "./App.scss";
+import { Provider } from "react-redux";
+import { store } from "./store";
+import Header from "./components/header";
+import Game from "./components/game";
+import "./app.scss";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header"></header>
-    </div>
+    <Provider store={store}>
+      <div className="app">
+        <Header />
+        <Game />
+      </div>
+    </Provider>
   );
 }
 
