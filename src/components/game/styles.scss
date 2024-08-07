@@ -6,7 +6,7 @@
   grid-template-rows: auto;
   gap: 10px;
   max-width: 100%;
-  margin: 20px auto;
+  margin: 20px auto 40px;
 
   @include respond-to(sm) {
     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
@@ -26,4 +26,5 @@
 .confetti {
   position: fixed !important;
   width: 100svw;
+  min-height: 100svh;
 }

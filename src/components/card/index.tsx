@@ -17,12 +17,14 @@ const Card: React.FC<CardProps> = ({
   flipped,
   onClick,
 }) => {
+  const handleClick = () => !flipped && !matched && onClick(id);
+
   return (
     <div
       className={`card ${!flipped ? "flipped" : ""} ${
         matched ? "matched" : ""
       }`}
-      onClick={() => !flipped && !matched && onClick(id)}
+      onClick={handleClick}
     >
       <div className="card-inner">
         <div className="card-front">{emoji}</div>

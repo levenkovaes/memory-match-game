@@ -3,6 +3,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: stretch;
   min-height: 100svh;
   padding: 20px 10px;
+  color: #ffffff;
+  background: radial-gradient(#4549a2, #000000);
 }
