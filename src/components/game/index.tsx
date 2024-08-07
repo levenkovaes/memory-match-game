@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../store";
+import Confetti from "react-confetti";
 import {
   addScore,
   calculateScore,
@@ -22,6 +23,7 @@ const Game: React.FC = () => {
   );
   const [flippedCards, setFlippedCards] = useState<string[]>([]);
   const [isChecking, setIsChecking] = useState<boolean>(false);
+  const [hasWon, setHasWon] = useState<boolean>(false);
 
   useEffect(() => {
     dispatch(setCards(generateCards(difficulty)));
@@ -40,7 +42,11 @@ const Game: React.FC = () => {
 
   const handleCardClick = (id: string) => {
     if (isChecking) return;
-    if (!gameStarted) dispatch(startGame());
+    if (!gameStarted) {
+      dispatch(startGame());
+      setHasWon(false);
+    }
+
     setFlippedCards((prev) => [...prev, id]);
     if (flippedCards.length === 1) {
       setIsChecking(true);
@@ -78,6 +84,7 @@ const Game: React.FC = () => {
           )
         ) {
           dispatch(stopGame());
+          setHasWon(true);
         }
       }, 1000);
     }
@@ -95,6 +102,7 @@ const Game: React.FC = () => {
           onClick={handleCardClick}
         />
       ))}
+      {hasWon && <Confetti className="confetti" recycle={false} />}
     </div>
   );
 };
