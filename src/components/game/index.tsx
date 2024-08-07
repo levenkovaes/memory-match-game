@@ -18,12 +18,11 @@ import { generateCards } from "../../utils/intex";
 
 const Game: React.FC = () => {
   const dispatch: AppDispatch = useDispatch();
-  const { cards, difficulty, gameStarted } = useSelector(
+  const { cards, difficulty, gameStarted, userWon } = useSelector(
     (state: RootState) => state.game
   );
   const [flippedCards, setFlippedCards] = useState<string[]>([]);
   const [isChecking, setIsChecking] = useState<boolean>(false);
-  const [hasWon, setHasWon] = useState<boolean>(false);
 
   useEffect(() => {
     dispatch(setCards(generateCards(difficulty)));
@@ -44,7 +43,6 @@ const Game: React.FC = () => {
     if (isChecking) return;
     if (!gameStarted) {
       dispatch(startGame());
-      setHasWon(false);
     }
 
     setFlippedCards((prev) => [...prev, id]);
@@ -84,7 +82,6 @@ const Game: React.FC = () => {
           )
         ) {
           dispatch(stopGame());
-          setHasWon(true);
         }
       }, 1000);
     }
@@ -102,7 +99,7 @@ const Game: React.FC = () => {
           onClick={handleCardClick}
         />
       ))}
-      {hasWon && <Confetti className="confetti" recycle={false} />}
+      {userWon && <Confetti className="confetti" recycle={false} />}
     </div>
   );
 };

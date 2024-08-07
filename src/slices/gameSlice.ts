@@ -6,6 +6,7 @@ import {
   CORRECT_GUESS_BONUS,
   TIME_PENALTY,
 } from "./constants";
+import { generateCards } from "../utils/intex";
 
 const initialState: GameState = {
   cards: [],
@@ -15,6 +16,7 @@ const initialState: GameState = {
   attempts: 0,
   correctGuesses: 0,
   gameStarted: false,
+  userWon: false,
 };
 
 const gameSlice = createSlice({
@@ -47,13 +49,14 @@ const gameSlice = createSlice({
     },
     startGame(state) {
       state.gameStarted = true;
+      state.userWon = false;
     },
     stopGame(state) {
       state.gameStarted = false;
+      state.userWon = true;
     },
     resetGame(state) {
-      // TODO
-      state.cards = [];
+      state.cards = generateCards(state.difficulty);
       state.timer = 0;
       state.score = 0;
       state.attempts = 0;
