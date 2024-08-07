@@ -2,15 +2,15 @@
 
 @keyframes COLOR_BLINK {
   0% {
-    background-color: #ffffff;
+    background: #4549a2;
   }
 
-  50% {
-    background-color: #fff7e1;
+  30% {
+    background: #f7ca16;
   }
 
   100% {
-    background-color: #fafafa;
+    background: radial-gradient(#4549a2, #171835);
   }
 }
 
@@ -27,9 +27,8 @@
     pointer-events: none;
 
     .card-front {
-      animation: COLOR_BLINK 1.4s;
-      animation-delay: 0.05s;
-      background-color: #fafafa;
+      animation: COLOR_BLINK 1.3s;
+      background: radial-gradient(#4549a2, #171835);
     }
   }
 
@@ -53,16 +52,16 @@
     justify-content: center;
     font-size: 2.3rem;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   }
 
   .card-front {
-    background-color: #ffffff;
+    background-color: #4549a2;
     transform: rotateY(0deg);
   }
 
   .card-back {
-    background-color: #eeeeee;
+    background: #26274a;
     transform: rotateY(180deg);
   }
 }

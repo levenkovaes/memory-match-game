@@ -2,13 +2,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../store";
 import { resetGame, setDifficulty } from "../../slices/gameSlice";
 import {
-  Button,
   Chip,
   MenuItem,
   Select,
   SelectChangeEvent,
   Typography,
 } from "@mui/material";
+import { SButton } from "./styled";
 import "./styles.scss";
 import { DifficultyEnum } from "../../types";
 
@@ -22,6 +22,8 @@ const Header: React.FC = () => {
     dispatch(setDifficulty(event.target.value as DifficultyEnum));
     dispatch(resetGame());
   };
+
+  const handleReset = () => dispatch(resetGame());
 
   return (
     <div className="header">
@@ -40,13 +42,9 @@ const Header: React.FC = () => {
             </MenuItem>
           ))}
         </Select>
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={() => dispatch(resetGame())}
-        >
+        <SButton variant="contained" color="primary" onClick={handleReset}>
           Reset
-        </Button>
+        </SButton>
       </div>
       <div className="info">
         <Chip
