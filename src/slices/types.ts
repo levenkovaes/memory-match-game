@@ -14,5 +14,6 @@ export interface GameState {
   attempts: number;
   correctGuesses: number;
   gameStarted: boolean;
+  gameWasReset: boolean;
   userWon: boolean;
 }

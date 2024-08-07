@@ -9,6 +9,7 @@ import {
   incrementCorrectGuesses,
   incrementTimer,
   setCards,
+  setWasReset,
   startGame,
   stopGame,
 } from "../../slices/gameSlice";
@@ -18,7 +19,7 @@ import { generateCards } from "../../utils/intex";
 
 const Game: React.FC = () => {
   const dispatch: AppDispatch = useDispatch();
-  const { cards, difficulty, gameStarted, userWon } = useSelector(
+  const { cards, difficulty, gameStarted, gameWasReset, userWon } = useSelector(
     (state: RootState) => state.game
   );
   const [flippedCards, setFlippedCards] = useState<string[]>([]);
@@ -30,6 +31,7 @@ const Game: React.FC = () => {
 
   useEffect(() => {
     let interval: ReturnType<typeof setInterval>;
+
     if (gameStarted) {
       interval = setInterval(() => {
         dispatch(incrementTimer());
@@ -38,6 +40,14 @@ const Game: React.FC = () => {
 
     return () => clearInterval(interval);
   }, [gameStarted, dispatch]);
+
+  useEffect(() => {
+    if (gameWasReset) {
+      setFlippedCards([]);
+      setIsChecking(false);
+      dispatch(setWasReset(false));
+    }
+  }, [gameWasReset, dispatch]);
 
   const handleCardClick = (id: string) => {
     if (isChecking) return;
