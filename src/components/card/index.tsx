@@ -1,14 +1,6 @@
 import React from "react";
 import "./styles.scss";
-import { EmojisEnum } from "../../types";
-
-interface CardProps {
-  id: string;
-  emoji: EmojisEnum;
-  matched: boolean;
-  flipped: boolean;
-  onClick: (id: string) => void;
-}
+import { CardProps } from "./types";
 
 const Card: React.FC<CardProps> = ({
   id,

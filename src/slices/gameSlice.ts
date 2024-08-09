@@ -16,6 +16,7 @@ const initialState: GameState = {
   attempts: 0,
   correctGuesses: 0,
   gameStarted: false,
+  gameWasReset: false,
   userWon: false,
 };
 
@@ -55,6 +56,9 @@ const gameSlice = createSlice({
       state.gameStarted = false;
       state.userWon = true;
     },
+    setWasReset(state, action: PayloadAction<boolean>) {
+      state.gameWasReset = action.payload;
+    },
     resetGame(state) {
       state.cards = generateCards(state.difficulty);
       state.timer = 0;
@@ -62,6 +66,7 @@ const gameSlice = createSlice({
       state.attempts = 0;
       state.correctGuesses = 0;
       state.gameStarted = false;
+      state.gameWasReset = true;
     },
   },
 });
@@ -77,5 +82,6 @@ export const {
   calculateScore,
   startGame,
   stopGame,
+  setWasReset,
   resetGame,
 } = gameSlice.actions;
