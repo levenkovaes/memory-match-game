@@ -28,6 +28,10 @@ This is a memory card matching game where players should match pairs of emoji ca
 ## Usage
     $ npm start
 
+## Screenshots
+![image](https://github.com/user-attachments/assets/5739c17a-3c37-4281-aee4-3e4c51b68a8e)
+![image](https://github.com/user-attachments/assets/3be4f0f8-e484-482b-978b-f55bf352abc4)
+
 ## License
 This project is licensed under the MIT license <br> 
 Copyright © 2024 [Ekaterina Levenkova](https://github.com/levenkovaes)
