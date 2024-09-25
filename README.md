@@ -4,10 +4,10 @@
 This is a memory card matching game where players should match pairs of emoji cards within a set of cards by flipping two cards at a time.
 
 ### Features
-- Three Difficulty Levels: Easy, Medium, and Hard, with an increasing number of card pairs.
-- Timer: Starts when the user first clicks on a card and stops when all cards are matched.
-- Scoring System: Scores are based on the number of attempts and time taken to match all cards.
-- Animations: Cards flip, and cards match are visually reflected.
+- **Three Difficulty Levels**: Easy, Medium, and Hard, with an increasing number of card pairs.
+- **Timer**: Starts when the user first clicks on a card and stops when all cards are matched.
+- **Scoring System**: Scores are based on the number of attempts and time taken to match all cards.
+- **Animations**: Cards flip, and cards match are visually reflected.
 
 ## Technologies
 - TypeScript
