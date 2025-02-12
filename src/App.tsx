@@ -4,7 +4,7 @@ import { ThemeProvider } from "@mui/material";
 import { store } from "./store";
 import Header from "./components/header";
 import Game from "./components/game";
-import "./app.scss";
+import "./App.scss";
 
 import theme from "./theme";
 
