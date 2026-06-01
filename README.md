@@ -34,4 +34,4 @@ This is a memory card matching game where players should match pairs of emoji ca
 
 ## License
 This project is licensed under the MIT license <br> 
-Copyright © 2024 [Ekaterina Levenkova](https://github.com/levenkovaes)
+Copyright © 2026 [Ekaterina Levenkova](https://github.com/levenkovaes)
